@@ -1,5 +1,6 @@
 import time
 import os
+import sys
 
 os.system("clear")
 logs = ["""                                    
@@ -171,6 +172,10 @@ while True:
     escolha = input("escolha uma opção: ")
     print("\033[0m")
 
+ elif escolha == "exit":
+    print("saindo do programa...")
+    time.sleep(1)
+    sys.exit()
  else :
     print(f"tax tolo fei tirou {escolha} da onde?")
     time.sleep(2)
