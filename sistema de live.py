@@ -72,6 +72,8 @@ boot = ["""\033[32m
    |                                           |
    |como usar programas                  [3]   |
    |                                           |
+   |esconder ip do seu pc                [4]   |
+   |e baixar tor browser                 [44]  |
    |                                           |
    |teste pro programador                [5]   |
    |___________________________________________|
@@ -97,15 +99,15 @@ def carregamento():
 
         time.sleep(0.03)
 
-logo()
-time.sleep(4)
-os.system("clear") 
-menu()
-print("\033[32m")
-escolha = input("escolha uma opção: ")
-print("\033[0m")
-
 while True:
+ logo()
+ time.sleep(4)
+ os.system("clear") 
+ menu()
+ print("\033[32m")
+ escolha = input("escolha uma opção: ")
+ print("\033[0m")
+
  if escolha == "1":
      carregamento()
      os.system("clear")
@@ -121,11 +123,6 @@ while True:
      time.sleep(1)
      print("--Só isso por enquanto--")
      input("aperte enter para voltar ao menu")
-     os.system("clear")
-     menu()
-     print("\033[32m")
-     escolha = input("escolha uma opção: ")
-     print("\033[0m")
 
  elif escolha == "2":
      carregamento()
@@ -137,11 +134,6 @@ while True:
      os.system("sudo apt install john")
      print("programas instalados com sucesso")
      input("aperte enter para voltar ao menu")
-     os.system("clear")
-     menu()
-     print("\033[32m")
-     escolha = input("escolha uma opção: ")
-     print("\033[0m")
 
  elif escolha == "3":
     carregamento()
@@ -157,18 +149,37 @@ while True:
     print("\033[31mjohn the ripper: serve para quebrar senhas com força bruta e você pode usar o comando john --wordlist=rockyou.txt --rules --stdout | john --stdin --format=raw-md5 hash.txt para quebrar senhas de um alvo !MAS VOCÊ TEM QUE TEM QUE TER UMA WORDLIST!\033[0m")
     time.sleep(2)
     input("aperte enter para voltar ao menu")
-    os.system("clear")
-    menu()
-    print("\033[32m")
-    escolha = input("escolha uma opção: ")
-    print("\033[0m")
 
+ elif escolha == "4":
+    carregamento()
+    os.system("clear")
+    ai = input("M para mudar de IP e B para baixar ").lower()
+    if ai == "b":
+       os.system("sudo apt install git")
+       os.system("git clone https://github.com/s-r-e-e-r-a-j/IPGhost.git")
+       input("aperte enter para voltar ao menu")
+
+    elif ai == "m":
+       os.system("cd IPGhost && sudo ipghost")
+       input("aperte enter para voltar ao menu")
+
+ elif escolha == "44":
+    carregamento()
+    os.system("clear")
+    ei = input("A para abrir tor browser B para baixar Tor Browser: ").lower()
+    if ei == "b":
+       os.system("sudo apt install torbrowser-launcher")
+    elif ei == "a":
+       os.system("torbrowser-launcher")
+       
  elif escolha == "5":
     carregamento()
     os.system("clear")
     print("esse é o modo de desenvolvedor vai ter literalmente nada aqui então se quiser sair eu apóio :)")
-    print("\033[32m")
     input("aperte enter para voltar ao menu")
+    os.system("clear")
+    menu()
+    print("\033[32m")
     escolha = input("escolha uma opção: ")
     print("\033[0m")
 
