@@ -62,21 +62,23 @@ logs = ["""
 """]
 
 boot = ["""\033[32m
-    ___________________________________________
-   |                Menu Boot                  |
-   |___________________________________________|
-   |                                           |
-   |iniciando direto no terminal         [1]   |
-   |                                           |
-   |programas pintester para baixar      [2]   |
-   |                                           |
-   |como usar programas                  [3]   |
-   |                                           |
-   |esconder ip do seu pc                [4]   |
-   |e baixar tor browser                 [44]  |
-   |                                           |
-   |teste pro programador                [5]   |
-   |___________________________________________|
+    __________________________________________________
+   |                    Menu Boot                     |
+   |__________________________________________________|
+   |                                                  |
+   |iniciando direto no terminal          [1]         |
+   |                                                  |
+   |programas pintester para baixar       [2]         |
+   |                                                  |
+   |como usar programas                   [3]         |
+   |                                                  |
+   |esconder ip do seu pc                 [4]         |
+   |e baixar tor browser                  [44]        |
+   |                                                  |
+   |teste pro programador                 [5]         |
+   |                                                  |
+   |wireshark                             [6]         |
+   |__________________________________________________|
 \033[0m
 """]
 
@@ -93,7 +95,7 @@ def carregamento():
         os.system("clear")
 
         barras = porcentagem // 5
-        barra = "█" * barras + "-" * (20 - barras)
+        barra = "█" * barras + "=" * (20 - barras)
 
         print(f"Carregando [{barra}] {porcentagem}%")
 
@@ -113,6 +115,8 @@ while True:
      os.system("clear")
      print(" -> nmap <-")
      time.sleep(1)
+     print(" -> dirb <-")
+     time.sleep(1)
      print(" -> nikto <-")
      time.sleep(1)
      print(" -> metasploit <- msfconsole ")
@@ -121,6 +125,10 @@ while True:
      time.sleep(1)
      print(" -> john the ripper <- john")
      time.sleep(1)
+     print(" -> ncrack <-")
+     time.sleep(1)
+     print(" -> ettercap <-")
+     time.sleep(1)
      print("--Só isso por enquanto--")
      input("aperte enter para voltar ao menu")
 
@@ -128,26 +136,41 @@ while True:
      carregamento()
      os.system("clear")
      os.system("sudo apt install nmap")
+     os.system("pkg install nmap")
+     os.system("sudo apt install dirb")
+     os.system("pkg install dirb")
      os.system("sudo apt install nikto")
+     os.system("pkg install nikto")
      os.system("sudo apt install metasploit-framework")
+     os.system("pkg install metasploit-framework")
      os.system("sudo apt install sqlmap")
+     os.system("pkg install sqlmap")
      os.system("sudo apt install john")
+     os.system("pkg install john")
+     os.system("sudo apt install ncrack")
+     os.system("pkg install ncrack")
+     os.system("sudo apt install ettercap-text-only")
+     os.system("pkg install ettercap-text-only")
      print("programas instalados com sucesso")
      input("aperte enter para voltar ao menu")
 
  elif escolha == "3":
     carregamento()
     os.system("clear")
-    print("\033[34mnmap: serve para escanear portas de um alvo, tem como usar quanto por IP ou por URL tipo nmap www.google.com.br , nmap 123.456.789.012 \033[0m")
+    print("\033[34mnmap: serve para escanear portas de um alvo, tem como usar quanto por IP ou por URL tipo nmap www.site.com.br , nmap 123.456.789.012 \033[0m")
     time.sleep(2)
-    print("nikto: serve para escanear vulnerabilidades de um alvo você usar a URL junto com -h tipo nikto -h www.google.com.br")
+    print("dirb: serve para você achar URL escondidas em um site tipo dirb www.site.com")
+    time.sleep(2)
+    print("nikto: serve para escanear vulnerabilidades de um alvo você usar a URL junto com -h tipo nikto -h www.site.com.br")
     time.sleep(2)
     print("\033[32mmetasploit: serve para explorar vulnerabilidades de um alvo e você pode usar o msfconsole para abrir o metasploit e depois usar o comando search para procurar exploits de um alvo \033[0m")
     time.sleep(2)
-    print("\033[33msqlmap: serve para explorar vulnerabilidades de um banco de dados e você pode usar o comando sqlmap -u www.google.com.br --dbs para procurar bancos de dados de um alvo\033[0m")
+    print("\033[33msqlmap: serve para explorar vulnerabilidades de um banco de dados e você pode usar o comando sqlmap -u www.site.com.br --dbs para procurar bancos de dados de um alvo\033[0m")
     time.sleep(2)
     print("\033[31mjohn the ripper: serve para quebrar senhas com força bruta e você pode usar o comando john --wordlist=rockyou.txt --rules --stdout | john --stdin --format=raw-md5 hash.txt para quebrar senhas de um alvo !MAS VOCÊ TEM QUE TEM QUE TER UMA WORDLIST!\033[0m")
     time.sleep(2)
+    print("ettercap: serve para analizar redes onlines use  ettercap -T -r [pacote] recomendo usar junto com wireshark")
+    time.sleep(1)
     input("aperte enter para voltar ao menu")
 
  elif escolha == "4":
@@ -183,10 +206,24 @@ while True:
     escolha = input("escolha uma opção: ")
     print("\033[0m")
 
+ elif escolha == "6":
+    carregamento()
+    os.system("clear")
+    print("A para abrir o wireshark B para baixar o wireshark")
+    ii = input(": ").lower()
+
+    if ii == "b":
+      os.system("sudo apt install wireshark")
+
+
+    elif ii == "a":
+       os.system("wireshark")
+
  elif escolha == "exit":
-    print("saindo do programa...")
-    time.sleep(1)
-    sys.exit()
+   print("saindo do programa...")
+   time.sleep(1)
+   sys.exit()
+
  else :
     print(f"tax tolo fei tirou {escolha} da onde?")
     time.sleep(2)
