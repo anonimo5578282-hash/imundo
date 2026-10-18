@@ -62,23 +62,27 @@ logs = ["""
 """]
 
 boot = ["""\033[32m
-    __________________________________________________
-   |                    Menu Boot                     |
-   |__________________________________________________|
-   |                                                  |
-   |iniciando direto no terminal          [1]         |
-   |                                                  |
-   |programas pintester para baixar       [2]         |
-   |                                                  |
-   |como usar programas                   [3]         |
-   |                                                  |
-   |esconder ip do seu pc                 [4]         |
-   |e baixar tor browser                  [44]        |
-   |                                                  |
-   |teste pro programador                 [5]         |
-   |                                                  |
-   |wireshark                             [6]         |
-   |__________________________________________________|
+    ______________________________________________________________
+   |                       Menu Boot                              |
+   |______________________________________________________________|
+   |                                                              |
+   |comandos das tools                                [1]         |
+   |                                                              |
+   |programas pintester para baixar                   [2]         |
+   |                                                              |
+   |como usar programas                               [3]         |
+   |                                                              |
+   |esconder ip do seu pc                             [4]         |
+   |e baixar tor browser                              [44]        |
+   |                                                              |
+   |teste pro programador                             [5]         |
+   |                                                              |
+   |wireshark                                         [6]         |
+   |                                                              |
+   |passar tempo                                      [7]         |
+   |                                                              |
+   |interface do ettercap                             [8]         |
+   |______________________________________________________________|
 \033[0m
 """]
 
@@ -151,13 +155,13 @@ while True:
      os.system("pkg install ncrack")
      os.system("sudo apt install ettercap-text-only")
      os.system("pkg install ettercap-text-only")
-     print("programas instalados com sucesso")
+     print("alguns programas pode não ter baixado!")
      input("aperte enter para voltar ao menu")
 
  elif escolha == "3":
     carregamento()
     os.system("clear")
-    print("\033[34mnmap: serve para escanear portas de um alvo, tem como usar quanto por IP ou por URL tipo nmap www.site.com.br , nmap 123.456.789.012 \033[0m")
+    print("\033[44mnmap: serve para escanear portas de um alvo, tem como usar quanto por IP ou por URL tipo nmap www.site.com.br , nmap 123.456.789.012 \033[0m")
     time.sleep(2)
     print("dirb: serve para você achar URL escondidas em um site tipo dirb www.site.com")
     time.sleep(2)
@@ -169,7 +173,7 @@ while True:
     time.sleep(2)
     print("\033[31mjohn the ripper: serve para quebrar senhas com força bruta e você pode usar o comando john --wordlist=rockyou.txt --rules --stdout | john --stdin --format=raw-md5 hash.txt para quebrar senhas de um alvo !MAS VOCÊ TEM QUE TEM QUE TER UMA WORDLIST!\033[0m")
     time.sleep(2)
-    print("ettercap: serve para analizar redes onlines use  ettercap -T -r [pacote] recomendo usar junto com wireshark")
+    print("\033[32mettercap: serve para analizar redes onlines use  ettercap -T -r [pacote] recomendo usar junto com wireshark \033[0m")
     time.sleep(1)
     input("aperte enter para voltar ao menu")
 
@@ -214,10 +218,38 @@ while True:
 
     if ii == "b":
       os.system("sudo apt install wireshark")
+      input("enter para voltar: ")
 
 
     elif ii == "a":
        os.system("wireshark")
+
+ elif escolha == "7":
+    carregamento()
+    os.system("clear")
+    print("a para abrir b para baixar")
+    oi = input(": ").lower()
+
+    if oi == "a":
+       os.system("freedoom1")
+       input("enter para voltar: ")
+
+    elif oi == "b":
+       os.system("sudo apt install freedoom")
+       input("enter para voltar: ")
+
+ elif escolha == "8":
+    carregamento()
+    os.system("clear")
+    print("A para abrir B para baixar")
+    ui = input(": ").lower()
+
+    if ui == "a":
+       os.system("sudo ettercap -G")
+
+    elif ui == "b":
+       print("!ATENÇÃO!, O ETTERCAP NORMAL PODE SER DESISTALADO AO BAIXAR A INTERFACE DO ETTERCAP")
+       os.system("sudo apt install ettercap-graphical")
 
  elif escolha == "exit":
    print("saindo do programa...")
